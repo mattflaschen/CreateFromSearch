@@ -48,7 +48,11 @@ var $create = $('<div />',
 var $buttons;
 if(mw.config.get('wgUserName') === null)
 {
-	$buttons = [makeButton('Log In', $('#pt-login a').attr('href'), true)];
+	$buttons =
+	[
+		makeButton('Log In', $('#pt-login a').attr('href'), true),
+		makeButton('Sign Up', $('#pt-createaccount a').attr('href'), true)
+	];
 }
 else
 {
@@ -64,7 +68,7 @@ else
 
 $create.append($('<p />',
 		       {
-			       text: 'To create the "' + page + '" article:',
+			       text: 'You can create the "' + page + '" article:',
 			       css:
 			       {
 				       fontSize: '135%',

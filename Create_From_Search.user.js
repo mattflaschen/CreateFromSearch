@@ -6,28 +6,34 @@
 // @version     1
 // ==/UserScript==
 
+// Production version would use classes and separate CSS file.
+function addButtonCss($btn, isPrimary)
+{
+	return $btn.css(
+	{
+		border: '1px solid black',
+		borderRadius: '4px',
+		backgroundColor: isPrimary ? 'blue' : '#C9FFF6',
+		color: isPrimary ? 'white' : 'black',
+		display: 'inline-block',
+		minWidth: '200px',
+		fontWeight: 'bold',
+		marginRight: '5px',
+		paddingBottom: '10px',
+		paddingTop: '10px',
+		textAlign: 'center',
+		textDecoration: 'none'
+	});
+}
+
 function makeButton(text, url, isPrimary)
 {
-	// Production version would use classes and separate CSS file.
-	return $('<a />',
-	       {
-		       text: text,
-		       href: url,
-		       css:
-		       {
-			       border: '1px solid black',
-			       backgroundColor: isPrimary ? 'blue' : '#C9FFF6',
-			       color: isPrimary ? 'white' : 'black',
-			       display: 'inline-block',
-			       width: '200px',
-			       fontWeight: 'bold',
-			       marginRight: '5px',
-			       paddingBottom: '10px',
-			       paddingTop: '10px',
-			       textAlign: 'center',
-			       textDecoration: 'none'
-		       }
-	       });
+	var $btn = $('<a />',
+	{
+		text: text,
+		href: url
+	});
+	return addButtonCss($btn, isPrimary);
 }
 
 var mw = unsafeWindow.mw; // prototype-only

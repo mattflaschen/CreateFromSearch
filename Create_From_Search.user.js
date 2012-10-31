@@ -9,21 +9,23 @@
 function makeButton(text, url, isPrimary)
 {
 	// Production version would use classes and separate CSS file.
-	return $('<button />',
+	return $('<a />',
 	       {
 		       text: text,
-		       click: function()
-		       {
-			       window.location.href = url;
-		       },
+		       href: url,
 		       css:
 		       {
+			       border: '1px solid black',
 			       backgroundColor: isPrimary ? 'blue' : '#C9FFF6',
 			       color: isPrimary ? 'white' : 'black',
+			       display: 'inline-block',
 			       width: '200px',
-			       height: '40px',
 			       fontWeight: 'bold',
-			       marginRight: '5px'
+			       marginRight: '5px',
+			       paddingBottom: '10px',
+			       paddingTop: '10px',
+			       textAlign: 'center',
+			       textDecoration: 'none'
 		       }
 	       });
 }

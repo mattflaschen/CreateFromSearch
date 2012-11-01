@@ -18,6 +18,7 @@ function addButtonCss($btn, isPrimary)
 		color: isPrimary ? 'white' : 'black',
 		display: 'inline-block',
 		minWidth: '200px',
+		fontSize: '120%',
 		fontWeight: 'bold',
 		marginRight: '5px',
 		paddingBottom: '10px',

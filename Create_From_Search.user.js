@@ -28,11 +28,12 @@ function addButtonCss($btn, isPrimary)
 	});
 }
 
-function makeButton(text, url, isPrimary)
+function makeButton(text, title, url, isPrimary)
 {
 	var $btn = $('<a />',
 	{
 		text: text,
+		title: title,
 		href: url
 	});
 	return addButtonCss($btn, isPrimary);
@@ -59,8 +60,8 @@ function addSearchButtons()
 	{
 		$buttons =
 		[
-			makeButton('Log In', $('#pt-login a').attr('href'), true),
-			makeButton('Sign Up', $('#pt-createaccount a').attr('href'), true)
+			makeButton('Log In', 'Log in to Wikipedia', $('#pt-login a').attr('href'), true),
+			makeButton('Sign Up', 'Create a Wikipedia account', $('#pt-createaccount a').attr('href'), true)
 		];
 	}
 	else
@@ -69,9 +70,9 @@ function addSearchButtons()
 		var editUrl = mw.config.get('wgServer') + mw.config.get('wgScript') + '?action=edit&title=';
 		$buttons =
 		[
-			makeButton('Learn More', readUrl + 'Wikipedia:Your_first_article', true),
-			makeButton('Create Draft', editUrl + 'Special:MyPage/Sandbox/' + page, true),
-			makeButton('Create Immediately', editUrl + page, false)
+			makeButton('Learn More', 'Learn about creating your first article', readUrl + 'Wikipedia:Your_first_article', true),
+			makeButton('Create Draft', 'Create a draft in your personal sandbox', editUrl + 'Special:MyPage/Sandbox/' + page, true),
+			makeButton('Create Immediately', 'Create an article on the live encyclopedia', editUrl + page, false)
 		];
 	}
 
@@ -95,7 +96,7 @@ function addReturnButton()
 	var $returnTo = $('#mw-returnto');
 	var html = $returnTo.html();
 	var url = $('a', $returnTo).attr('href');
-	var $btn = makeButton('Return', url, true);
+	var $btn = makeButton('Return', 'Return to your previous page', url, true);
 	html = html.replace('Return', '');
 	$returnTo.html(html).prepend($btn);
 }

@@ -42,6 +42,10 @@ function makeButton(text, title, url, isPrimary)
 function addSearchButtons()
 {
 	var $doesNotExist = $('.mw-search-createlink');
+	if($('a.new', $doesNotExist).length == 0)
+	{
+		return; // Article already exists, despite mw-search-createlink
+	}
 	$('i, br', $doesNotExist).remove();
 
 	var page = $('#searchText').val();

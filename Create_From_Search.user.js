@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name        Create From Search
+// @description User script to facilitate logging in (if necessary) and creating articles from the Wikipedia search screen.  Available under GPLv2 or later.
 // @namespace   https://github.com/mattflaschen
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
 // @include     http://en.wikipedia.org/w/index.php?*search=*
